@@ -37,10 +37,7 @@ public class SexyLosersDownloader implements Downloader {
       return null;
    }
 
-   private void downloadStrip(Strip strip) {
-
-   }
-
+   @SuppressWarnings({"ResultOfMethodCallIgnored"})
    public void download(File output) {
       try {
          URL url = new URL(baseUrl + "strips.html");
@@ -118,7 +115,7 @@ public class SexyLosersDownloader implements Downloader {
    private void downloadPicture(URL url, String output) throws IOException {
       InputStream inputStream = url.openStream();
       OutputStream out = new BufferedOutputStream(new FileOutputStream(output));
-      int i = -1;
+      int i;
       while ((i = inputStream.read()) != -1) {
          out.write(i);
       }
